@@ -22,12 +22,12 @@ namespace DiscordBot.Services
             _discord.MessageReceived += MessageReceived;
         }
 
-        public async Task InitializeAsync(IServiceProvider provider)
-        {
-            _provider = provider;
-            await _commands.AddModulesAsync(Assembly.GetEntryAssembly());
-            // Add additional initialization code here...
-        }
+        // public async Task InitializeAsync(IServiceProvider provider)
+        // {
+        //     _provider = provider;
+        //     // await _commands.AddModulesAsync(Assembly.GetEntryAssembly());
+        //     // Add additional initialization code here...
+        // }
 
         private async Task MessageReceived(SocketMessage rawMessage)
         {

@@ -23,9 +23,9 @@ namespace DiscordBot
             _client = new DiscordSocketClient();
             _config = BuildConfig();
 
-            var services = ConfigureServices();
-            services.GetRequiredService<LogService>();
-            await services.GetRequiredService<CommandHandlingService>().InitializeAsync(services);
+            // var services = ConfigureServices();
+            // services.GetRequiredService<LogService>();
+            // await services.GetRequiredService<CommandHandlingService>().InitializeAsync(services);
 
             await _client.LoginAsync(TokenType.Bot, _config["token"]);
             await _client.StartAsync();
@@ -38,8 +38,8 @@ namespace DiscordBot
             return new ServiceCollection()
                 // Base
                 .AddSingleton(_client)
-                .AddSingleton<CommandService>()
-                .AddSingleton<CommandHandlingService>()
+                // .AddSingleton<CommandService>()
+                // .AddSingleton<CommandHandlingService>()
                 // Logging
                 .AddLogging()
                 .AddSingleton<LogService>()
